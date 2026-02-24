@@ -1,0 +1,137 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Pill Reminder App Frontend Implementation",
+  "requirements": [
+    {
+      "id": "REQ-3",
+      "summary": "Build medication management UI with add/edit/delete functionality",
+      "acceptanceCriteria": [
+        "An 'Add Medication' form is accessible and submits successfully to the backend",
+        "All medications are displayed with their key details",
+        "Each medication card has edit and delete actions"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/MedicationsPage.tsx",
+          "operation": "create",
+          "description": "Create the main medications management page that displays all medications in a card layout. Include an 'Add Medication' button that opens the medication form. Each medication card shows name, dosage, frequency, scheduled times, and provides edit/delete actions. Fetch medications using backend.listAllMedications() on mount. Handle delete via backend.deleteMedication(id). Use shadcn/ui Card, Button, and Dialog components. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/MedicationForm.tsx",
+          "operation": "create",
+          "description": "Create a reusable form component for adding and editing medications. Include fields for name (text), dosage (text), frequency (select: daily, twiceDaily, weekly, custom), scheduled times (time picker array), start date (date picker), end date (optional date picker), and notes (textarea). Accept mode prop ('add' or 'edit') and initialData prop for editing. On submit, call backend.addMedication() for new or backend.updateMedication() for editing. Use shadcn/ui Form, Input, Select, Button, and Label components. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/MedicationCard.tsx",
+          "operation": "create",
+          "description": "Create a card component to display a single medication's details: name, dosage, frequency (formatted human-readable), scheduled times (formatted as time strings), start/end dates, and notes. Include Edit and Delete icon buttons in the card header. Accept medication prop and onEdit/onDelete callback props. Use shadcn/ui Card, Badge, and Button components. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire the MedicationsPage into the app routing. Add a route for /medications and include a navigation link in the header/navbar. Ensure the route is accessible from the main navigation."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Build daily schedule view with dose logging actions",
+      "acceptanceCriteria": [
+        "Today's scheduled doses are listed in chronological order",
+        "Each dose has action buttons for Taken, Skipped, and Missed",
+        "Logged doses show a visual status indicator (e.g., checkmark, badge, color)",
+        "Marking a dose calls the backend and updates the UI optimistically"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/TodaySchedulePage.tsx",
+          "operation": "create",
+          "description": "Create the daily schedule page that displays today's medication doses in chronological order. Fetch all medications via backend.listAllMedications(), compute today's scheduled doses from their scheduledTimes, and fetch existing dose logs via backend.getDoseHistory() for each medication. Render each dose using the DoseEntry component. Display doses grouped by time with visual status indicators for logged doses. Use shadcn/ui Card and Separator components. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/DoseEntry.tsx",
+          "operation": "create",
+          "description": "Create a component to display a single scheduled dose entry. Show medication name, dosage, and scheduled time. If the dose is already logged, display the status visually using a Badge with color coding (green for taken, yellow for skipped, gray for missed). If not logged, show three action buttons: Taken, Skipped, Missed. On button click, call backend.logDose(medicationId, scheduledTime, status) and update local state optimistically. Use shadcn/ui Button, Badge, and Card components. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire the TodaySchedulePage into the app routing. Add a route for /today (or make it the default route) and include a navigation link in the header/navbar."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Build dose history and adherence view",
+      "acceptanceCriteria": [
+        "Dose history entries are listed with medication name, date/time, and status",
+        "History can be filtered or grouped by medication",
+        "An adherence percentage is displayed per medication"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/HistoryPage.tsx",
+          "operation": "create",
+          "description": "Create the dose history and adherence page. Fetch all medications via backend.listAllMedications() and dose history for each via backend.getDoseHistory(). Display history entries grouped by medication with date/time and status. Calculate adherence percentage per medication (taken doses / total scheduled doses in history period) and display it prominently. Provide a filter/toggle to switch between grouping by medication or by date. Use shadcn/ui Table, Card, Badge, and Select components. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/AdherenceSummary.tsx",
+          "operation": "create",
+          "description": "Create a component to display adherence statistics for a single medication. Show medication name and adherence percentage with a visual progress bar or circular indicator. Accept medication and doseHistory props and calculate the percentage (taken / scheduled). Use shadcn/ui Card, Progress, and Badge components. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire the HistoryPage into the app routing. Add a route for /history and include a navigation link in the header/navbar."
+        }
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "summary": "Apply a clean, calming visual theme with soft warm neutrals and gentle accents",
+      "acceptanceCriteria": [
+        "A consistent color palette and typography scale is applied across all pages",
+        "The design feels calm and readable, not clinical or alarming",
+        "Card and layout patterns are consistent across all views"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Update the global CSS to apply a calm, health-focused theme. Define CSS custom properties for soft warm neutrals (beige, cream, light tan) as base colors and gentle accent colors (soft coral, warm peach, muted sage) avoiding blue/purple. Set a clear, readable typography scale with comfortable line heights and font weights. Apply these variables to body, headings, and interactive elements. Ensure card backgrounds, borders, and shadows feel soft and approachable."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Extend the Tailwind configuration to include the custom health app color palette. Add colors for warm neutrals (bg-base, bg-surface, text-primary, text-secondary) and gentle accents (accent-coral, accent-peach, accent-sage). Configure rounded corner sizes for cards and buttons to feel soft. Ensure the theme values align with the CSS custom properties defined in index.css."
+        },
+        {
+          "path": "frontend/src/components/Layout.tsx",
+          "operation": "create",
+          "description": "Create a shared Layout component that wraps all pages. Include a header/navbar with the app logo and navigation links (Today, Medications, History). Apply consistent padding, spacing, and card-based layout patterns. Use the theme colors and typography from index.css and Tailwind config. Use shadcn/ui Card and Separator components. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wrap all routed pages with the Layout component to ensure consistent theme application across all views."
+        }
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "summary": "Use custom app logo icon in the app header",
+      "acceptanceCriteria": [
+        "The logo is displayed in the top navigation bar",
+        "The image is loaded from the static assets folder"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Layout.tsx",
+          "operation": "modify",
+          "description": "Update the Layout component header to include the app logo. Reference the generated logo image at frontend/public/assets/generated/pill-logo.dim_128x128.png. Display it as an inline image in the navbar with appropriate sizing (e.g., height: 32px or 40px) next to the app title 'PillPal'."
+        }
+      ]
+    }
+  ]
+}

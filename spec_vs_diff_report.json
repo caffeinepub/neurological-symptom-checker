@@ -1,0 +1,61 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-24T13:22:23.270Z",
+  "summary": "The diff implements all 7 requirements with strong coverage. Backend CRUD and dose logging are present in backend/main.mo. All three frontend pages (Today Schedule, Medications, History) are implemented. The visual theme is applied via index.css with warm coral/neutral palette. The logo is rendered in Layout.tsx. One minor gap exists: the backend lacks a method to retrieve overall dose history across ALL medications in a single call (only per-medication getDoseHistory exists), though the frontend works around this by calling getDoseHistory per medication ID.",
+  "missing_requirements": [
+    {
+      "id": "REQ-2",
+      "requirement": "Overall dose history can be retrieved across all medications (single backend call)",
+      "reason": "The backend only exposes getDoseHistory(medicationId) which queries per-medication. There is no getAllDoseHistory() or equivalent backend function that returns dose logs across all medications in one call. The frontend compensates by calling getDoseHistory for each medication ID individually.",
+      "evidence": [
+        "backend/main.mo",
+        "frontend/src/hooks/useQueries.ts"
+      ]
+    }
+  ],
+  "hallucinated_features": [
+    {
+      "description": "Dark mode theme support",
+      "reason": "The build request does not mention dark mode support, but the CSS includes a full .dark variant with alternative color tokens, and the app wraps with ThemeProvider from next-themes with enableSystem.",
+      "evidence": [
+        "frontend/src/index.css",
+        "frontend/src/App.tsx"
+      ]
+    },
+    {
+      "description": "Internet Identity / authentication integration",
+      "reason": "The build request explicitly lists user authentication as a non-goal, yet the diff includes a full InternetIdentityProvider, useInternetIdentity hook, and useActor that handles authenticated vs. anonymous actor creation.",
+      "evidence": [
+        "frontend/src/hooks/useInternetIdentity.ts",
+        "frontend/src/hooks/useActor.ts",
+        "frontend/src/main.tsx"
+      ]
+    }
+  ],
+  "confidence": 0.85,
+  "changed_files": [
+    "all_files_summary.json",
+    "backend/main.mo",
+    "frontend-file-summaries.txt",
+    "frontend/index.css",
+    "frontend/index.html",
+    "frontend/src/App.tsx",
+    "frontend/src/components/AdherenceSummary.tsx",
+    "frontend/src/components/DoseEntry.tsx",
+    "frontend/src/components/Layout.tsx",
+    "frontend/src/components/MedicationCard.tsx",
+    "frontend/src/components/MedicationForm.tsx",
+    "frontend/src/hooks/useActor.ts",
+    "frontend/src/hooks/useInternetIdentity.ts",
+    "frontend/src/hooks/useQueries.ts",
+    "frontend/src/index.css",
+    "frontend/src/lib/utils.ts",
+    "frontend/src/main.tsx",
+    "frontend/src/pages/HistoryPage.tsx",
+    "frontend/src/pages/MedicationsPage.tsx",
+    "frontend/src/pages/TodaySchedulePage.tsx",
+    "frontend/tailwind.config.js",
+    "project_state.json"
+  ]
+}

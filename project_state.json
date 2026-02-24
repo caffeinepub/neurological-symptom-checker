@@ -1,0 +1,79 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "A pill reminder app that helps users track and manage their medication schedules.",
+  "architectural_notes": [],
+  "known_issues": [],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- A friendly pill capsule icon illustration in soft warm coral and white tones, minimal and rounded style (pill-logo.dim_128x128.png)",
+  "existing_features": [
+    {
+      "id": "feature-build-a-medication-management-ui-where-users-can-add-new-medications-using-a-form-name-dosage-frequency-scheduled-times-start-end-dates-notes-view-all-their-current-medications-in-a-list-or-card-layout-and-edit-or-delete-any-medication",
+      "title": "Build a medication management UI where users can add new medications using a form (name, dosage, frequency, scheduled times, start/end dates, notes), view all their current medications in a list or card layout, and edit or delete any medication.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-a-daily-schedule-view-that-lists-all-medication-doses-scheduled-for-today-each-dose-entry-should-show-the-pill-name-dosage-and-scheduled-time-and-provide-buttons-to-mark-it-as-taken-skipped-or-missed-already-logged-doses-should-display-their-status-visually",
+      "title": "Build a daily schedule view that lists all medication doses scheduled for today. Each dose entry should show the pill name, dosage, and scheduled time, and provide buttons to mark it as Taken, Skipped, or Missed. Already-logged doses should display their status visually.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-a-dose-history-adherence-view-that-shows-a-log-of-all-past-dose-events-grouped-by-medication-or-by-date-display-a-simple-adherence-summary-e-g-percentage-of-doses-taken-vs-scheduled-per-medication",
+      "title": "Build a dose history / adherence view that shows a log of all past dose events grouped by medication or by date. Display a simple adherence summary (e.g., percentage of doses taken vs. scheduled) per medication.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-a-clean-calming-visual-theme-suited-to-a-health-app-using-soft-warm-neutrals-gentle-accent-colors-avoid-blue-purple-clear-typography-for-readability-and-a-card-based-layout-the-theme-should-feel-reassuring-and-approachable-and-be-applied-consistently-across-all-screens",
+      "title": "Apply a clean, calming visual theme suited to a health app — using soft warm neutrals, gentle accent colors (avoid blue/purple), clear typography for readability, and a card-based layout. The theme should feel reassuring and approachable and be applied consistently across all screens.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-use-a-custom-app-logo-icon-as-a-static-asset-frontend-public-assets-generated-pill-logo-png-rendered-in-the-app-header-navbar",
+      "title": "Use a custom app logo icon as a static asset (frontend/public/assets/generated/pill-logo.png) rendered in the app header/navbar.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Pill reminder app with medication tracking and scheduling",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Create a backend data model to store medications, including fields for: medication name, dosage, frequency (e.g., daily, twice daily, weekly), scheduled times, start date, end date (optional), and notes. Support CRUD operations: add, update, delete, and list all medications.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Create a backend data model to track dose logs — recording when each scheduled dose was taken, skipped, or missed. Support logging a dose event (with status: taken, skipped, missed) and querying dose history for a given medication.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Pill Reminder App",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

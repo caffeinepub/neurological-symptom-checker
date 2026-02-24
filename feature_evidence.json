@@ -1,0 +1,105 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-build-a-medication-management-ui-where-users-can-add-new-medications-using-a-form-name-dosage-frequency-scheduled-times-start-end-dates-notes-view-all-their-current-medications-in-a-list-or-card-layout-and-edit-or-delete-any-medication",
+      "featureTitle": "Build a medication management UI where users can add new medications using a form (name, dosage, frequency, scheduled times, start/end dates, notes), view all their current medications in a list or card layout, and edit or delete any medication.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/MedicationCard.tsx",
+        "frontend/src/components/MedicationForm.tsx",
+        "frontend/src/pages/MedicationsPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-build-a-daily-schedule-view-that-lists-all-medication-doses-scheduled-for-today-each-dose-entry-should-show-the-pill-name-dosage-and-scheduled-time-and-provide-buttons-to-mark-it-as-taken-skipped-or-missed-already-logged-doses-should-display-their-status-visually",
+      "featureTitle": "Build a daily schedule view that lists all medication doses scheduled for today. Each dose entry should show the pill name, dosage, and scheduled time, and provide buttons to mark it as Taken, Skipped, or Missed. Already-logged doses should display their status visually.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/DoseEntry.tsx",
+        "frontend/src/pages/TodaySchedulePage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-4"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-build-a-dose-history-adherence-view-that-shows-a-log-of-all-past-dose-events-grouped-by-medication-or-by-date-display-a-simple-adherence-summary-e-g-percentage-of-doses-taken-vs-scheduled-per-medication",
+      "featureTitle": "Build a dose history / adherence view that shows a log of all past dose events grouped by medication or by date. Display a simple adherence summary (e.g., percentage of doses taken vs. scheduled) per medication.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/AdherenceSummary.tsx",
+        "frontend/src/pages/HistoryPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-5"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-apply-a-clean-calming-visual-theme-suited-to-a-health-app-using-soft-warm-neutrals-gentle-accent-colors-avoid-blue-purple-clear-typography-for-readability-and-a-card-based-layout-the-theme-should-feel-reassuring-and-approachable-and-be-applied-consistently-across-all-screens",
+      "featureTitle": "Apply a clean, calming visual theme suited to a health app — using soft warm neutrals, gentle accent colors (avoid blue/purple), clear typography for readability, and a card-based layout. The theme should feel reassuring and approachable and be applied consistently across all screens.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/Layout.tsx",
+        "frontend/src/index.css",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-6"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-use-a-custom-app-logo-icon-as-a-static-asset-frontend-public-assets-generated-pill-logo-png-rendered-in-the-app-header-navbar",
+      "featureTitle": "Use a custom app logo icon as a static asset (frontend/public/assets/generated/pill-logo.png) rendered in the app header/navbar.",
+      "files": [
+        "frontend/src/components/Layout.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-7"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

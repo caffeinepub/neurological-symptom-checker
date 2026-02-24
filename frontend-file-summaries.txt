@@ -1,0 +1,15 @@
+{
+  "frontend/src/index.css": "Global styles with a warm, calming health-app theme using OKLCH color tokens — soft cream backgrounds, warm coral primary, muted sage accents, and custom status color utilities for taken/skipped/missed states. Imports Plus Jakarta Sans and Lora fonts.",
+  "frontend/tailwind.config.js": "Extended Tailwind config with custom font families (Plus Jakarta Sans, Lora), additional border radius sizes, soft shadow utilities, and a fade-in animation keyframe.",
+  "frontend/src/hooks/useQueries.ts": "All React Query hooks for backend integration — useListMedications, useAddMedication, useUpdateMedication, useDeleteMedication, useGetDoseHistory, useGetAllDoseHistory, and useLogDose with proper cache invalidation.",
+  "frontend/src/lib/utils.ts": "Utility functions for nanosecond/date conversions, time formatting, frequency display, ID generation, and today's date range calculations.",
+  "frontend/src/components/Layout.tsx": "Shared app shell with sticky header (logo + desktop nav), mobile bottom navigation bar, and footer with caffeine.ai attribution. Uses TanStack Router's `Link` with `activeProps` for active link styling instead of the non-existent `NavLink`.",
+  "frontend/src/components/MedicationForm.tsx": "Reusable add/edit medication form with fields for name, dosage, frequency (with custom days option), multiple scheduled times, start/end dates, and notes. Includes validation and loading state.",
+  "frontend/src/components/MedicationCard.tsx": "Card component displaying a single medication's details (name, dosage, frequency badge, scheduled times, dates, notes) with edit and delete action buttons.",
+  "frontend/src/components/DoseEntry.tsx": "Single dose entry row showing medication name, dosage, and scheduled time with Taken/Skipped/Missed action buttons or a status badge if already logged, with optimistic UI updates.",
+  "frontend/src/components/AdherenceSummary.tsx": "Adherence card for a single medication showing taken/skipped/missed counts, a percentage score, and a progress bar.",
+  "frontend/src/pages/TodaySchedulePage.tsx": "Today's schedule page that computes today's doses from all active medications, matches them against existing dose logs, and renders them in chronological order with a dose counter.",
+  "frontend/src/pages/MedicationsPage.tsx": "Medications management page with a card grid, Add/Edit dialog using MedicationForm, and delete confirmation AlertDialog. Shows empty state when no medications exist.",
+  "frontend/src/pages/HistoryPage.tsx": "History and adherence page with two tabs — Adherence (per-medication AdherenceSummary cards) and Log (dose history grouped by date with medication filter chips).",
+  "frontend/src/App.tsx": "Root app component with TanStack Router setup (Today, Medications, History routes), ThemeProvider, and Sonner Toaster. Uses Layout as the root route component via Outlet."
+}

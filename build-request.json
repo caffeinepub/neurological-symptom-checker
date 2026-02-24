@@ -1,0 +1,152 @@
+{
+  "kind": "build_request",
+  "title": "Pill Reminder App",
+  "projectName": "PillPal",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Create a backend data model to store medications, including fields for: medication name, dosage, frequency (e.g., daily, twice daily, weekly), scheduled times, start date, end date (optional), and notes. Support CRUD operations: add, update, delete, and list all medications.",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-5"
+        ],
+        "quotes": [
+          "Build a pill reminder app"
+        ]
+      },
+      "acceptanceCriteria": [
+        "A medication can be created with name, dosage, frequency, scheduled times, and start date",
+        "Medications can be retrieved, updated, and deleted by ID",
+        "Listing all medications returns the full collection"
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Create a backend data model to track dose logs — recording when each scheduled dose was taken, skipped, or missed. Support logging a dose event (with status: taken, skipped, missed) and querying dose history for a given medication.",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-5"
+        ],
+        "quotes": [
+          "Build a pill reminder app"
+        ]
+      },
+      "acceptanceCriteria": [
+        "A dose event can be logged with medication ID, timestamp, and status (taken/skipped/missed)",
+        "Dose history for a specific medication can be retrieved",
+        "Overall dose history can be retrieved across all medications"
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Build a medication management UI where users can add new medications using a form (name, dosage, frequency, scheduled times, start/end dates, notes), view all their current medications in a list or card layout, and edit or delete any medication.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-5"
+        ],
+        "quotes": [
+          "Build a pill reminder app"
+        ]
+      },
+      "acceptanceCriteria": [
+        "An 'Add Medication' form is accessible and submits successfully to the backend",
+        "All medications are displayed with their key details",
+        "Each medication card has edit and delete actions"
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Build a daily schedule view that lists all medication doses scheduled for today. Each dose entry should show the pill name, dosage, and scheduled time, and provide buttons to mark it as Taken, Skipped, or Missed. Already-logged doses should display their status visually.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-5"
+        ],
+        "quotes": [
+          "Build a pill reminder app"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Today's scheduled doses are listed in chronological order",
+        "Each dose has action buttons for Taken, Skipped, and Missed",
+        "Logged doses show a visual status indicator (e.g., checkmark, badge, color)",
+        "Marking a dose calls the backend and updates the UI optimistically"
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Build a dose history / adherence view that shows a log of all past dose events grouped by medication or by date. Display a simple adherence summary (e.g., percentage of doses taken vs. scheduled) per medication.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-5"
+        ],
+        "quotes": [
+          "Build a pill reminder app"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Dose history entries are listed with medication name, date/time, and status",
+        "History can be filtered or grouped by medication",
+        "An adherence percentage is displayed per medication"
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "text": "Apply a clean, calming visual theme suited to a health app — using soft warm neutrals, gentle accent colors (avoid blue/purple), clear typography for readability, and a card-based layout. The theme should feel reassuring and approachable and be applied consistently across all screens.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-5"
+        ],
+        "quotes": [
+          "Build a pill reminder app"
+        ]
+      },
+      "acceptanceCriteria": [
+        "A consistent color palette and typography scale is applied across all pages",
+        "The design feels calm and readable, not clinical or alarming",
+        "Card and layout patterns are consistent across all views"
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "text": "Use a custom app logo icon as a static asset (frontend/public/assets/generated/pill-logo.png) rendered in the app header/navbar.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-5"
+        ],
+        "quotes": [
+          "Build a pill reminder app"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The logo is displayed in the top navigation bar",
+        "The image is loaded from the static assets folder"
+      ]
+    }
+  ],
+  "constraints": [
+    "All Motoko logic must remain in a single backend actor (backend/main.mo)",
+    "Do not edit any files under frontend/src/hooks/ or frontend/src/components/ui",
+    "No external APIs or third-party services"
+  ],
+  "nonGoals": [
+    "Push notifications or email/SMS reminders",
+    "User authentication or multi-user support",
+    "Integration with pharmacy or prescription APIs",
+    "Drug interaction checking",
+    "Real-time synchronization"
+  ],
+  "imageRequirements": {
+    "required": [
+      "A friendly pill capsule icon illustration in soft warm coral and white tones, minimal and rounded style (pill-logo.dim_128x128.png)"
+    ],
+    "edits": []
+  }
+}
